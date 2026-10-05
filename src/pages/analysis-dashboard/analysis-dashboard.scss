@@ -101,7 +101,7 @@
     }
 
     &__primary-button {
-        color: var(--text-prominent);
+        color: var(--text-on-brand, #fff);
         background: var(--button-primary-default);
     }
 

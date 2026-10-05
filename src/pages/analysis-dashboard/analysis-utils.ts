@@ -23,16 +23,21 @@ const average = (values: number[]) => values.reduce((total, value) => total + va
 const calculateRsi = (closes: number[], period: number): number => {
     let gains = 0;
     let losses = 0;
-    const firstChange = closes.length - period;
 
-    for (let index = firstChange; index < closes.length; index += 1) {
+    for (let index = 1; index <= period; index += 1) {
         const change = closes[index] - closes[index - 1];
         if (change > 0) gains += change;
         if (change < 0) losses += Math.abs(change);
     }
 
-    const averageGain = gains / period;
-    const averageLoss = losses / period;
+    let averageGain = gains / period;
+    let averageLoss = losses / period;
+    for (let index = period + 1; index < closes.length; index += 1) {
+        const change = closes[index] - closes[index - 1];
+        averageGain = (averageGain * (period - 1) + Math.max(change, 0)) / period;
+        averageLoss = (averageLoss * (period - 1) + Math.max(-change, 0)) / period;
+    }
+
     if (averageGain === 0 && averageLoss === 0) return 50;
     if (averageLoss === 0) return 100;
     if (averageGain === 0) return 0;
