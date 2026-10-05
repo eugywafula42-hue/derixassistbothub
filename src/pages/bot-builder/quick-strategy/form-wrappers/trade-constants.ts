@@ -69,6 +69,12 @@ export const STRATEGY_TRADE_ASSOCIATIONS: TStrategyTradeAssociations = [
         parent: [localize('Options')],
     },
     {
+        name: 'FREE_STARTER',
+        display_name: STRATEGIES().FREE_STARTER.label,
+        id: 14,
+        parent: [localize('Options')],
+    },
+    {
         name: 'ACCUMULATORS_MARTINGALE',
         display_name: STRATEGIES().ACCUMULATORS_MARTINGALE.label,
         id: 6,

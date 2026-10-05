@@ -492,6 +492,43 @@ export const STRATEGIES = (): TStrategies => ({
             [LABEL_PROFIT(), PROFIT(), LABEL_LOSS(), LOSS()],
         ],
     },
+    FREE_STARTER: {
+        name: 'free_starter',
+        label: localize('Free starter bot (one trade)'),
+        description: [
+            {
+                type: 'subtitle',
+                content: [localize('Fixed stake. One trade only.')],
+                expanded: true,
+                no_collapsible: false,
+            },
+            {
+                type: 'text',
+                content: [
+                    localize(
+                        'This editable template makes one trade at the stake you choose, then stops. Set the market, contract type, stake, and duration. Use a demo account to practice.'
+                    ),
+                ],
+            },
+        ],
+        fields: [
+            [
+                LABEL_SYMBOL(),
+                SYMBOL(),
+                LABEL_TRADETYPE(),
+                TRADETYPE(),
+                LABEL_PURCHASE_TYPE(),
+                PURCHASE_TYPE(),
+                LABEL_LAST_DIGIT_PREDICTION(),
+                LAST_DIGIT_PREDICTION(),
+                LABEL_STAKE(),
+                STAKE(),
+                LABEL_DURATION(),
+                DURATION_TYPE(),
+                DURATION(),
+            ],
+        ],
+    },
     ACCUMULATORS_MARTINGALE: {
         name: 'accumulators_martingale',
         label: localizeMartingale(),
